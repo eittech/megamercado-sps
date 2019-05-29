@@ -11,6 +11,9 @@ RewriteEngine on
 
 
 #Domain: megamercado.io
+RewriteCond %{HTTP_HOST} ^www.megamercado.io
+RewriteRule ^(.*)$ http://megamercado.io/$1 [R=301,L]
+
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule . - [E=REWRITEBASE:/]
 RewriteRule ^api$ api/ [L]
