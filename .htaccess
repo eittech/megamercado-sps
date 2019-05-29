@@ -21,8 +21,7 @@ RewriteRule ^api/(.*)$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [QSA,L
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
 
-
-#Domain: megamercado.io
+#Domain: megamercado.io Tecnopolis
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule . - [E=REWRITEBASE:/]
 RewriteRule ^api$ api/ [L]
@@ -38,8 +37,7 @@ RewriteRule ^tecnopolis/(.*) /$1 [L]
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
 
-
-#Domain: megamercado.io
+#Domain: megamercado.io Alicay
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule . - [E=REWRITEBASE:/]
 RewriteRule ^api$ api/ [L]
@@ -56,7 +54,7 @@ RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
 
 
-#Domain: megamercado.io
+#Domain: megamercado.io Hierbabuena
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule . - [E=REWRITEBASE:/]
 RewriteRule ^api$ api/ [L]
@@ -72,30 +70,12 @@ RewriteRule ^hierbabuena/(.*) /$1 [L]
 RewriteCond %{HTTP_HOST} ^megamercado.io$
 RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
 
+RewriteCond %{HTTP_HOST} ^www.puroextremo.com.ve
+RewriteRule ^(.*)$ http://puroextremo.com.ve/$1 [R=301,L]
 
-#Domain: artmakeuproom.com
-RewriteCond %{HTTP_HOST} ^artmakeuproom.com$
-RewriteRule . - [E=REWRITEBASE:/]
-RewriteRule ^api$ api/ [L]
+RewriteCond %{HTTP_HOST} ^www.artmakeuproom.com
+RewriteRule ^(.*)$ http://artmakeuproom.com/$1 [R=301,L]
 
-RewriteRule ^api/(.*)$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [QSA,L]
-
-# AlphaImageLoader for IE and fancybox
-RewriteCond %{HTTP_HOST} ^artmakeuproom.com$
-RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
-
-
-#Domain: puroextremo.com.ve
-RewriteCond %{HTTP_HOST} ^puroextremo.com.ve$
-RewriteRule . - [E=REWRITEBASE:/]
-RewriteRule ^api$ api/ [L]
-
-RewriteRule ^api/(.*)$ %{ENV:REWRITEBASE}webservice/dispatcher.php?url=$1 [QSA,L]
-
-# AlphaImageLoader for IE and fancybox
-RewriteCond %{HTTP_HOST} ^puroextremo.com.ve$
-RewriteRule ^images_ie/?([^/]+)\.(jpe?g|png|gif)$ js/jquery/plugins/fancybox/images/$1.$2 [L]
-</IfModule>
 
 AddType application/vnd.ms-fontobject .eot
 AddType font/ttf .ttf
