@@ -732,7 +732,7 @@ class FrontControllerCore extends Controller
                 $this->smartyOutputContent('errors/maintenance.tpl');
 
                 exit;*/
-                // Redireccion personalizada
+                // Redireccion personalizada para megamercado
                 $url = "http://registro.megamercado.io";
                 Tools::redirect($url);
                 header('HTTP/1.1 503 temporarily overloaded');
