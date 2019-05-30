@@ -718,7 +718,7 @@ class FrontControllerCore extends Controller
         if ($this->maintenance == true || !(int) Configuration::get('PS_SHOP_ENABLE')) {
             $this->maintenance = true;
             if (!in_array(Tools::getRemoteAddr(), explode(',', Configuration::get('PS_MAINTENANCE_IP')))) {
-                header('HTTP/1.1 503 Service Unavailable');
+                /*header('HTTP/1.1 503 Service Unavailable');
                 header('Retry-After: 3600');
 
                 $this->registerStylesheet('theme-error', '/assets/css/error.css', ['media' => 'all', 'priority' => 50]);
@@ -731,7 +731,16 @@ class FrontControllerCore extends Controller
                 ));
                 $this->smartyOutputContent('errors/maintenance.tpl');
 
-                exit;
+                exit;*/
+                // Redireccion personalizada para megamercado
+                $url = "http://registro.megamercado.io";
+                Tools::redirect($url);
+                header('HTTP/1.1 503 temporarily overloaded');
+                $this->context->smarty->assign($this->initLogoAndFavicon());
+                $this->context->smarty->assign(array(
+                'HOOK_MAINTENANCE' => Hook::exec('displayMaintenance', array()),
+
+                ));
             }
         }
     }
